@@ -12,6 +12,16 @@ export default function App() {
       .then((json) => (setTodos(json)))
   }, [])
 
+  const changeComplete = (status, id) => {
+    const copyTodos = todos;
+
+    const index = copyTodos.findIndex((item) => item.id === id);
+    copyTodos[index].completed = status;
+
+    setTodos(copyTodos);
+
+    console.log(copyTodos[index].completed)
+  }
 
   return (
     <div className="container">
@@ -21,7 +31,7 @@ export default function App() {
         <button className='button button__add'>ADD</button>
       </header>
 
-      <TodoList todos={todos} />
+      <TodoList changeComplete={changeComplete} todos={todos} />
     </div>
   );
 }

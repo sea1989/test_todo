@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function TodoItem({ title, id, completed, subtitle }) {
+export default function TodoItem({ title, id, completed, subtitle, onChange }) {
 
   const [checked, setChecked] = useState(completed)
 
@@ -8,7 +8,11 @@ export default function TodoItem({ title, id, completed, subtitle }) {
 
   if (checked) {
     cls.push('completed')
-    completed = !completed
+  }
+
+  const handleClick = () => {
+    setChecked(!checked);
+    onChange(checked, id);
   }
 
   return (
@@ -19,7 +23,7 @@ export default function TodoItem({ title, id, completed, subtitle }) {
         <input
           type="checkbox"
           checked={checked}
-          onChange={() => setChecked(!checked)}
+          onChange={handleClick}
         />
 
         <span></span>
