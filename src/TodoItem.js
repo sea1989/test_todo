@@ -4,19 +4,13 @@ export default function TodoItem({ title, id, completed, subtitle, onChange }) {
 
   const [checked, setChecked] = useState(completed)
 
-  const cls = ['todo']
-
-  if (checked) {
-    cls.push('completed')
-  }
-
   const handleClick = () => {
     setChecked(!checked);
     onChange(checked, id);
   }
 
   return (
-    <li className={cls.join(' ')}>
+    <li className={`todo ${checked ? "completed" : ''}`}>
 
       <label>
 
