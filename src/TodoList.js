@@ -3,8 +3,8 @@ import TodoItem from './TodoItem'
 
 export default function TodoList({ todos, changeComplete }) {
 
-  const changeDone = (done,id) => {
-    changeComplete(done,id);
+  const changeDone = (id) => {
+    changeComplete(id);
   }
 
   return (

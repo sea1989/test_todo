@@ -12,11 +12,12 @@ export default function App() {
       .then((json) => (setTodos(json)))
   }, [])
 
-  const changeComplete = (status, id) => {
+  const changeComplete = (id) => {
     const copyTodos = todos;
 
-    const index = copyTodos.findIndex((item) => item.id === id);
-    copyTodos[index].completed = status;
+    const index = copyTodos.findIndex((item) => item.id === id)
+
+    copyTodos[index].completed = !copyTodos[index].completed;
 
     setTodos(copyTodos);
 

@@ -6,7 +6,7 @@ export default function TodoItem({ title, id, completed, subtitle, onChange }) {
 
   const handleClick = () => {
     setChecked(!checked);
-    onChange(checked, id);
+    onChange(id);
   }
 
   return (
