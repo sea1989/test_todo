@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import AddTask from './Add-task';
 import TodoList from './TodoList'
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         <button className='button button__add'>ADD</button>
       </header>
 
+      <AddTask />
       <TodoList changeComplete={changeComplete} todos={todos} />
     </div>
   );
